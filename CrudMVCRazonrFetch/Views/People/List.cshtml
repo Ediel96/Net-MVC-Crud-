@@ -1,0 +1,19 @@
+﻿@using CrudMVCRazonrFetch.Models.ViewModel
+@model List<ListPeopleViewModel>
+@{
+    Layout = null;
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+@foreach(var oPeople in Model)
+{
+<div>
+    Nombre:@oPeople.Name <br />
+    Edad: @oPeople.Age
+    <input onclick="document.location.href = '@Url.Content("~/People/Edit/?Id="+oPeople.Id)'" type="button" value="Editar" />
+    <input onclick="jsDelete(@oPeople.Id)" type="button" value="Eliminar" />
+</div>
+}
+
